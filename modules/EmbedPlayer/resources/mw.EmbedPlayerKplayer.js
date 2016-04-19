@@ -404,7 +404,7 @@
 			this.playerObject.setKDPAttribute('mediaProxy', 'isMp4', this.isMp4Src());
 			this.playerObject.setKDPAttribute('mediaProxy', 'entryDuration', this.getDuration()); //TODO - to support inteliseek - set the correct duration using seekFrom and clipTo
 			this.getEntryUrl().then(function (srcToPlay) {
-				if (!_this.playlist){
+				if (!_this.playlist || _this.autoplay){
 					_this.bindHelper("onChangeMediaDone", function(){
 						_this.unbindHelper("onChangeMediaDone");
 						_this.play();
@@ -856,7 +856,7 @@
                 //if( this.isLive() &&  mw.getConfig('isLiveKalturaHLS') ) {
                 //    originalSrc = originalSrc + "&playerType=flash";
                 //}
-
+                this.streamerType = 'hls';
 				this.resolveSrcURL(originalSrc)
 					.then(function (srcToPlay) {
                         _this.unresolvedSrcURL = false;
