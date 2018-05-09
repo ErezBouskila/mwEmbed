@@ -121,7 +121,7 @@
 			if (!this.$el) {
 				this.$el = $('<div />')
 					.addClass("timers" + this.getCssClass())
-					.text('0:00');
+					.text(mw.seconds2npt(this.embedPlayer.duration));
 				this.labelWidth = this.$el.width();
 				if (this.getConfig("countDownMode")){
 					this.$el.text(mw.seconds2npt(this.embedPlayer.getDuration()));
